@@ -7,6 +7,7 @@
 /bazel-out
 _site/
 
+/_site
 
 # Node
 /node_modules
