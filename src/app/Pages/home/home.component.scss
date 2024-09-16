@@ -1,0 +1,20 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Styles for Angular Material tabs (MDC version) */
+.mat-tab-group .mat-tab-label {
+  color: #808080 !important; /* Inactive tab color */
+}
+
+.mat-tab-group .mat-tab-label.mat-tab-label-active {
+  color: #254EDB !important; /* Active tab color */
+}
+
+.mat-tab-group .mat-tab-label .mdc-tab-indicator {
+  border-color: #254EDB; /* Active tab underline */
+}
+
+.mat-tab-group .mat-tab-label .mdc-tab-indicator--active {
+  background-color: #254EDB; /* Active tab indicator */
+}

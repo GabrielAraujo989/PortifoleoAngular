@@ -1,0 +1,59 @@
+<header class="fixed top-0 left-0 w-full bg-primary-500 text-white p-4 z-50 shadow-lg">
+  <div class="container mx-auto flex justify-between items-center">
+    <!-- Logo -->
+    <div class="text-xl font-bold">Logo</div>
+
+    <!-- Botão Hamburger (Mobile) -->
+    <button class="block md:hidden" (click)="toggleMenu()">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+      </svg>
+    </button>
+
+    <!-- Links de navegação (Desktop) -->
+    <nav class="hidden md:flex space-x-6">
+      <a routerLink="/" class="hover:underline">Inicio</a>
+      <a routerLink="/store" class="hover:underline">Produtos</a>
+      <a routerLink="/about" class="hover:underline">Sobre nós</a>
+      <a routerLink="/contact" class="hover:underline">Contatos</a>
+      <a routerLink="/downloads" class="hover:underline">Downloads</a>
+
+      <!-- Menu com ícone de usuário -->
+      <button [matMenuTriggerFor]="menu" class="hover:underline flex items-center">
+        <fa-icon [icon]="['fas', 'user-circle']" class="mr-2 w-8 h-8"></fa-icon>
+        <span class="hidden lg:inline"></span>
+      </button>
+
+      <mat-menu #menu="matMenu">
+        <ng-container *ngIf="isLoggedIn; else loginOption">
+          <button mat-menu-item>Configurações</button>
+          <button mat-menu-item>Minha Conta</button>
+          <button mat-menu-item (click)="toggleLogin()">Logout</button>
+        </ng-container>
+        <ng-template #loginOption>
+          <button mat-menu-item (click)="toggleLogin()">Login</button>
+        </ng-template>
+      </mat-menu>
+    </nav>
+
+   <!-- Links de navegação (Mobile) -->
+<nav *ngIf="menuOpen" class="md:hidden absolute top-16 left-0 w-full bg-primary-500 text-white p-4 space-y-4">
+  <a routerLink="/" class="block">Home</a>
+  <a routerLink="/store" class="block">Store</a>
+  <a routerLink="/about" class="block">About</a>
+  <a routerLink="/downloads" class="block">Downloads</a>
+
+  <!-- Menu de login/logout e opções do usuário no mobile -->
+  <ng-container *ngIf="isLoggedIn; else mobileLoginOption">
+    <a routerLink="/settings" class="block">Configurações</a>
+    <a routerLink="/account" class="block">Minha Conta</a>
+    <a (click)="toggleLogin()" class="block">Logout</a>
+  </ng-container>
+  <ng-template #mobileLoginOption>
+    <a routerLink="/login" class="block" (click)="toggleLogin()">Login</a>
+  </ng-template>
+</nav>
+
+
+  </div>
+</header>

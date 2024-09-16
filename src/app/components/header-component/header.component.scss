@@ -1,0 +1,20 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+::ng-deep .mat-menu-panel {
+    background-color: #ffffff !important; /* Fundo branco */
+    border: 1px solid #e0e0e0 !important; /* Borda fina */
+  }
+  
+  ::ng-deep .mat-menu-item {
+    color: #000000 !important; /* Texto preto */
+    text-align: left;
+    margin-left: 8px;
+  }
+  
+  ::ng-deep .mat-menu-item:hover {
+    background-color: #f0f0f0 !important; /* Fundo cinza claro no hover */
+  }
+  
+  
